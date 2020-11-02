@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>お問い合わせ|（仮）公園ポータルサイト</title>
+  <link rel="stylesheet"  type="text/css" href="../css/destyle.css"><!-- リセットcss -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<header>
+
+
+
+<nav id="breadcrumbs">
+  <ol>
+    <li><a href="">Top</a></li>
+    <li><a href="">公園種別って？</a></li>
+  </ol>
+</nav>
+
+
+<!-- nav_barはPCとSPで一部共有する -->
+  <nav id="nav_bar">
+  <div id="logo_caption">
+  <h1>福岡県の最大級の<span>公園ポータルサイト</span></h1>
+  <div id="space"></div>
+  </div><!-- logo_caption  -->
+
+<div id="pc_nav_site">
+  <ul id="pc_nav_site_ul">
+    <a href="search_map.html"><li>地図から探す</li></a>
+    <a href="#"><li>現在地から探す</li></a>
+    <a href="search_feature.html"><li>特徴から探す</li></a>
+    <a href="#"><li>動植物から探す</li></a>
+  </ul>
+
+<div id="tips_link"><a href="">公園なるほど情報</a></div>
+
+</div><!-- pc_nav_site -->
+  <!--- ハンバーガーメニューここから  --->
+  <div id="nav-drawer">
+      <input id="nav-input" type="checkbox" class="nav-unshown" value="ok">
+      <label id="nav-open" for="nav-input"><span></span></label>
+      <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+      <div id="nav-content">
+        <ul id="nav-content_large_ul">
+          <li><a href="#">TOP</a></li>
+          <li><a href="#">地図から探す</a></li>
+          <li><a href="#">現在地から探す</a></li>
+          <li><a href="#">特徴から探す</a></li>
+          <li><a href="#">動植物から探す</a></li>
+          <li><a href="#">公園なるほど情報</a></li>
+        </ul>
+        <ul id="nav-content_small_ul">
+          <li><a href="#">ご利用の案内</a></li>
+          <li><a href="#">広告掲載について</a></li>
+          <li><a href="#">ご意見・ご要望</a></li>
+          <li><a href="#">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+  </div>
+  <!--- ハンバーガーメニューここまで  --->
+  </nav><!-- nav_bar -->
+  </header>
+  
+
+
+<main>
+  <section id="section_contact_area">
+    <div id="contact_head_sub_section">
+      <div id="contact_head_area">
+        <span>お問い合わせ</span>
+      </div><!-- contact_head_area -->
+    </div><!--contact_head_sub_section -->
+
+
+
+    <!-- フォーム -->
+    <div id="contact_form_area">
+      <form>
+        <!-- 漢字を含む名前 -->
+        <label for="name">お名前</label>
+        <input id="name" type="text" name="name">
+        <!-- ひらがなのなまえ -->
+        <label for="hiragana">名前（ひらがな）</label>
+        <input id="hiragana" type="text" name="hira_name">
+        <!-- メールアドレス -->
+        <label for="email">メールアドレス</label>
+        <input id="email" type="email" name="email">
+        <!-- カテゴリ -->
+        <label for="category">カテゴリ</label>
+        <input id="category" type="text" name="category">
+        <!-- 内容 -->
+        <label for="comment">内容</label>
+        <textarea id="comment" accesskey="#" placeholder="お問い合わせ内容をご記入ください" name="comment" rows="4" cols="40"></textarea >
+      </form>
+
+
+
+
+
+    </div><!-- contact_form_area -->
+  </section><!-- section_contact_form_area -->
+</main>
+
+
+
+<footer>
+  <span>運営&nbsp;株式会社Grow-up</span>
+  
+</footer>
+</div><!-- wrapper -->
+
+  <script type="text/javascript" src="../js/sample.js"></script>
+</body>
+</html>

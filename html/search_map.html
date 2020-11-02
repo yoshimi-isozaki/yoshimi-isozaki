@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>地図から探す|（仮）公園ポータルサイト</title>
+  <link rel="stylesheet"  type="text/css" href="../css/destyle.css"><!-- リセットcss -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <!-- 地図API -->
+  <script src="https://polyfill.io/v3/polyfillmin.js?features=default"></script>
+  <script defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArS7a0PfkbWeM9-YdpmjU-ikR92TVFQzA&callback=initMap">
+</script>
+     <script src="../js/map_opener.js"></script><!-- src="./app.js" -->
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<header>
+
+
+
+<nav id="breadcrumbs">
+  <ol>
+    <li><a href="index.html">Top</a></li>
+    <li><a href="">地図から探す</a></li>
+  </ol>
+</nav>  
+
+
+
+<!-- nav_barはPCとSPで一部共有する -->
+  <nav id="nav_bar">
+  <div id="logo_caption">
+  <h1>福岡県の最大級の<span>公園ポータルサイト</span></h1>
+  <div id="space"></div>
+  </div><!-- logo_caption  -->
+
+<div id="pc_nav_site">
+  <ul id="pc_nav_site_ul">
+    <a href="search_map.html"><li>地図から探す</li></a>
+    <a href="#"><li>現在地から探す</li></a>
+    <a href="search_feature.html"><li>特徴から探す</li></a>
+    <a href="#"><li>動植物から探す</li></a>
+  </ul>
+
+<div id="tips_link"><a href="">公園なるほど情報</a></div>
+
+</div><!-- pc_nav_site -->
+  <!--- ハンバーガーメニューここから  --->
+  <div id="nav-drawer">
+      <input id="nav-input" type="checkbox" class="nav-unshown" value="ok">
+      <label id="nav-open" for="nav-input"><span></span></label>
+      <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+      <div id="nav-content">
+        <ul id="nav-content_large_ul">
+          <li><a href="#">TOP</a></li>
+          <li><a href="#">地図から探す</a></li>
+          <li><a href="#">現在地から探す</a></li>
+          <li><a href="#">特徴から探す</a></li>
+          <li><a href="#">動植物から探す</a></li>
+          <li><a href="#">公園なるほど情報</a></li>
+        </ul>
+        <ul id="nav-content_small_ul">
+          <li><a href="#">ご利用の案内</a></li>
+          <li><a href="#">広告掲載について</a></li>
+          <li><a href="#">ご意見・ご要望</a></li>
+          <li><a href="#">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+  </div>
+  <!--- ハンバーガーメニューここまで  --->
+  </nav><!-- nav_bar -->
+  </header>
+  
+
+
+<main>
+
+<section id="section_re_search_area">
+  <div id="re_search_area">
+    <!-- スマホ用の画面の再検索ボタン  -->
+    <div id="re_search_button">
+    <span>条件を変更して検索する</span>
+    </div>
+
+
+
+
+
+
+    <!--  pc用の再検索コンテンツ -->
+    <div id="re_search_pc">
+      <div id="local_select">
+        <span>地域</span>
+        <div class="cp_ipselect cp_sl01">
+        <select required>
+          <option value="" hidden>地域を選択してください</option>
+          <option value="1">福岡</option>
+          <option value="2">北九州</option>
+          <option value="3">久留米</option>
+          <option value="4">筑紫</option>
+          <option value="5">京築</option>
+          <option value="6">有明</option>
+        </select>
+        </div>
+
+    </div>
+        <ul id="largeul">
+          <div><!-- 行のdiv -->
+            <li id="largeul_li_a">
+
+
+
+    <div id="input-01" class="check_card">
+      <div class="all-ck">
+        <input type="checkbox" name="基本施設" value="全ての基本施設" id="ck-01-all">
+        <label for="ck-01-all">基本施設</label>
+      </div><!-- class="all-ck" -->
+      <ul class="ck-list">
+        <li>
+          <input type="checkbox" name="基本施設" value="トイレ" id="ck-01-01">
+          <label for="ck-01-01">トイレ</label>
+        </li>
+        <li>
+          <input type="checkbox" name="基本施設" value="管理室" id="ck-01-02">
+          <label for="ck-01-02">管理室</label>
+        </li>
+        <li>
+          <input type="checkbox" name="基本施設" value="売店" id="ck-01-03">
+          <label for="ck-01-03">売店</label>
+        </li>
+        <li>
+          <input type="checkbox" name="基本施設" value="駐車場" id="ck-01-04">
+          <label for="ck-01-04">駐車場</label>
+        </li>
+      </ul>
+    </div><!-- input-01 -->
+
+    <div id="input-02">
+      <div class="all-ck">
+        <input type="checkbox" name="こども" value="全てのこども" id="ck-02-all">
+        <label for="ck-02-all">こども</label>
+      </div><!-- class="all-ck" -->
+      <ul class="ck-list">
+        <li>
+          <input type="checkbox" name="こども" value="おむつ" id="ck-02-01">
+          <label for="ck-02-01">おむつ</label>
+        </li>
+        <li>
+          <input type="checkbox" name="こども" value="遊具" id="ck-02-02">
+          <label for="ck-02-02">遊具</label>
+        </li>
+        <li>
+          <input type="checkbox" name="こども" value="砂遊び" id="ck-02-03">
+          <label for="ck-02-03">砂遊び</label>
+        </li>
+        <li>
+          <input type="checkbox" name="こども" value="水遊び" id="ck-02-04">
+          <label for="ck-02-04">水遊び</label>
+        </li>
+      </ul><!-- class="ck-list" -->
+    </div><!-- input-02 -->
+
+
+    <div id="input-03">
+      <div class="all-ck">
+        <input type="checkbox" name="自然" value="全ての自然" id="ck-03-all">
+        <label for="ck-03-all">自然</label>
+      </div><!-- class="all-ck" -->
+      <ul class="ck-list">
+        <li>
+          <input type="checkbox" name="自然" value="川・池" id="ck-03-01">
+          <label for="ck-03-01">川・池</label>
+        </li>
+        <li>
+          <input type="checkbox" name="自然" value="花壇" id="ck-03-02">
+          <label for="ck-03-02">花壇</label>
+        </li>
+        <li>
+          <input type="checkbox" name="自然" value="桜" id="ck-03-03">
+          <label for="ck-03-03">桜</label>
+        </li>
+        <li>
+          <input type="checkbox" name="自然" value="遊歩道" id="ck-03-04">
+          <label for="ck-03-04">遊歩道</label>
+        </li>
+      </ul><!-- class="ck-list" -->
+    </div><!-- input-03 -->
+
+    </li><!-- largeul_li_a -->
+      </div><!-- 行のdiv -->
+
+
+
+
+    <div><!-- 行のdiv -->
+    <li id="largeul_li_b">
+    <div id="input-04">
+      <div class="all-ck">
+        <input type="checkbox" name="運動" value="全ての運動" id="ck-04-all">
+        <label for="ck-04-all">運動</label>
+      </div><!-- class="all-ck" -->
+      <ul class="ck-list">
+        <li>
+          <input type="checkbox" name="運動" value="ランニング" id="ck-04-01">
+          <label for="ck-04-01">ランニング</label>
+        </li>
+        <li>
+          <input type="checkbox" name="運動" value="野球場" id="ck-04-02">
+          <label for="ck-04-02">野球場</label>
+        </li>
+        <li>
+          <input type="checkbox" name="運動" value="テニス" id="ck-04-03">
+          <label for="ck-04-03">テニス</label>
+        </li>
+        <li>
+          <input type="checkbox" name="運動" value="体育館" id="ck-04-04">
+          <label for="ck-04-04">体育館</label>
+        </li>
+        <li>
+          <input type="checkbox" name="運動" value="多目的グラウンド" id="ck-04-05">
+          <label for="ck-04-05">多目的グラウンド</label>
+        </li>
+      </ul><!-- class="ck-list" -->
+    </div><!-- input-04 -->
+
+
+    <div id="input-05">
+      <div class="all-ck">
+        <input type="checkbox" name="アウトドア" value="全てのアウトドア" id="ck-05-all">
+        <label for="ck-05-all">アウトドア</label>
+      </div><!-- class="all-ck" -->
+      <ul class="ck-list">
+        <li>
+          <input type="checkbox" name="アウトドア" value="宿泊施設" id="ck-05-01">
+          <label for="ck-05-01">宿泊施設</label>
+        </li>
+        <li>
+          <input type="checkbox" name="アウトドア" value="キャンプ場" id="ck-05-02">
+          <label for="ck-05-02">キャンプ場</label>
+        </li>
+        <li>
+          <input type="checkbox" name="アウトドア" value="炊事場" id="ck-05-03">
+          <label for="ck-05-03">炊事場</label>
+        </li>
+        <li>
+          <input type="checkbox" name="アウトドア" value="フィッシング" id="ck-05-04">
+          <label for="ck-05-04">フィッシング</label>
+        </li>
+      </ul>
+    </div><!-- input-05 -->
+
+    <div id="input-06">
+      <div class="all-ck">
+        <input type="checkbox" name="バリアフリー" value="全てのバリアフリー" id="ck-06-all">
+        <label for="ck-06-all">バリアフリー</label>
+      </div><!-- class="all-ck" -->
+      <ul class="ck-list">
+        <li>
+          <input type="checkbox" name="バリアフリー" value="多目的トイレ" id="ck-06-01">
+          <label for="ck-06-01">多目的トイレ</label>
+        </li>
+        <li>
+          <input type="checkbox" name="バリアフリー" value="車椅子対応" id="ck-06-02">
+          <label for="ck-06-02">車椅子対応</label>
+        </li>
+      </ul><!-- class="ck-list" -->
+    </div><!-- input-06 -->
+
+</li><!-- largeul_li_b -->
+  </div><!-- 行のdiv -->
+
+
+
+    <div><!-- 行のdiv -->
+    <li id="largeul_li_c">
+    <div id="input-07">
+      <div class="all-ck">
+        <input type="checkbox" name="その他" value="全てのその他" id="ck-07-all">
+        <label for="ck-07-all">その他</label>
+      </div><!-- class="all-ck" -->
+      <ul class="ck-list">
+        <li>
+          <input type="checkbox" name="その他" value="ドッグラン" id="ck-07-01">
+          <label for="ck-07-01">ドッグラン</label>
+        </li>
+        <li>
+          <input type="checkbox" name="その他" value="ボート" id="ck-07-02">
+          <label for="ck-07-02">ボート</label>
+        </li>
+        <li>
+          <input type="checkbox" name="その他" value="美術館" id="ck-07-03">
+          <label for="ck-07-03">美術館</label>
+        </li>
+        <li>
+          <input type="checkbox" name="その他" value="資料館" id="ck-07-04">
+          <label for="ck-07-04">資料館</label>
+        </li>
+      </ul><!-- class="ck-list" -->
+    </div><!-- input-07 -->
+</li><!-- largeul_li_c -->
+  </div><!-- 行のdiv -->
+
+
+
+
+    </ul><!-- largeul -->
+      </div><!-- local_select -->
+
+    </div><!-- re_search_area -->
+
+
+
+
+
+
+</section>
+
+
+
+
+
+<section id="section_map">
+    <div id="map_canvas">
+    </div><!-- js-map -->
+</section><!-- section_map -->
+
+
+</main>
+
+
+
+<footer>
+  <span>運営&nbsp;株式会社Grow-up</span>
+  
+</footer>
+</div><!-- wrapper -->
+
+  <script type="text/javascript" src="../js/sample.js"></script>
+  <!-- クラスター関係 -->
+    <!-- Replace following script src -->
+    <script src="https://unpkg.com/@google/markerclustererplus@5.1.0/dist/markerclustererplus.min.js"></script>
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArS7a0PfkbWeM9-YdpmjU-ikR92TVFQzA&callback=initMap">
+    </script>
+    <!-- クラスター関係終了 -->
+</body>
+</html>
